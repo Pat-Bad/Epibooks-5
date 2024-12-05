@@ -7,6 +7,7 @@ import BookList from "./components/BookList";
 import SingleBook from "./components/SingleBook";
 import { click } from "@testing-library/user-event/dist/click";
 import { Card } from "react-bootstrap";
+import { fantasy } from "../src/data/fantasy.json";
 //import { Button } from "react-bootstrap";
 
 //test("renders learn react link", () => {
@@ -65,7 +66,7 @@ it("changes border colour when selected", () => {
 //7. verificare che all'avvio della pagina non ci sia il componente singlecomment. errore nella lettura di filter
 
 it("does not display SingleComment component when page loads", () => {
-  render(<BookList />);
+  render(<SingleComment />);
   const DeleteButton = screen.queryByLabelText(/elimina/i);
 
   expect(DeleteButton).toBeNull();
