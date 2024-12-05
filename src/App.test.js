@@ -53,12 +53,12 @@ it("renders searched book title", async () => {
   expect(SearchedBook).toBeInTheDocument();
 });
 
-//verificare che il bordo del libro selezionato cambi colore
+//verificare che il bordo del libro selezionato cambi colore. Cosa succede quando il il bordo cambia colore?
 
 it("changes border colour when selected", () => {
   render(<SingleBook />);
   const Book = screen.getByTestId("test-searched-book");
-  fireEvent.click(screen.getAllByTestId("test-searched-book"));
+  fireEvent.click(Book);
   expect(Book).toHaveStyle("3px solid red");
 });
 
