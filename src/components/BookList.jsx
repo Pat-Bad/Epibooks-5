@@ -1,22 +1,26 @@
-import { useState } from 'react'
-import SingleBook from './SingleBook'
-import { Col, Form, Row } from 'react-bootstrap'
-import CommentArea from './CommentArea'
+import { useState } from "react";
+import SingleBook from "./SingleBook";
+import { Col, Form, Row } from "react-bootstrap";
+import CommentArea from "./CommentArea";
 
 const BookList = ({ books }) => {
-  const [searchQuery, setSearchQuery] = useState('')
-  const [selectedBook, setSelectedBook] = useState(null)
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedBook, setSelectedBook] = useState(null);
 
   const changeSelectedBook = (asin) => {
-    setSelectedBook(asin)
-  }
+    setSelectedBook(asin);
+  };
 
   return (
     <>
       <Row>
         <Col md={8}>
           <Row className="justify-content-center mt-5">
-            <Col xs={12} md={4} className="text-center">
+            <Col
+              xs={12}
+              md={4}
+              className="text-center"
+            >
               <Form.Group>
                 <Form.Control
                   type="search"
@@ -31,7 +35,11 @@ const BookList = ({ books }) => {
             {books
               .filter((b) => b.title.toLowerCase().includes(searchQuery))
               .map((b) => (
-                <Col xs={12} md={4} key={b.asin}>
+                <Col
+                  xs={12}
+                  md={4}
+                  key={b.asin}
+                >
                   <SingleBook
                     book={b}
                     selectedBook={selectedBook}
@@ -46,7 +54,7 @@ const BookList = ({ books }) => {
         </Col>
       </Row>
     </>
-  )
-}
+  );
+};
 
-export default BookList
+export default BookList;
