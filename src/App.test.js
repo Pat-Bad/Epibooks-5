@@ -32,7 +32,7 @@ it("shows Welcome alert", () => {
 //expect(AmountOfCards).toHaveLength();
 //});
 
-//verificare che CommentArea venga renderizzato. è async e fa una fetch. Si vede una lista dei commenti. Prendo l'altro componente, che se me lo monta vuol dire che monta comment area!
+//verificare che CommentArea venga renderizzato. è async e fa una fetch. Si vede una lista dei commenti. Prendo l'altro componente, che se me lo monta vuol dire che monta comment area! non funziona, errore per .filter... è asincrono????
 
 it("displays CommentArea component correctly", async () => {
   render(<SingleComment />);
@@ -41,7 +41,7 @@ it("displays CommentArea component correctly", async () => {
   expect(DeleteButton).toBeInTheDocument();
 });
 
-//verifica che la barra di ricerca dei libri funzioni correttamente
+//verifica che la barra di ricerca dei libri funzioni correttamente. errore nella lettura dell'asin?
 
 it("renders searched book title", async () => {
   render(<BookList />, <SingleBook />);
@@ -62,10 +62,11 @@ it("changes border colour when selected", () => {
   expect(Book).toHaveStyle("3px solid red");
 });
 
-//7. verificare che all'avvio della pagina non ci sia il componente singlecomment
+//7. verificare che all'avvio della pagina non ci sia il componente singlecomment. errore nella lettura di filter
 
 it("does not display SingleComment component when page loads", () => {
   render(<BookList />);
-  const SingleComment = screen.queryByText(/elimina/i);
-  expect(SingleComment).toBeNull();
+  const DeleteButton = screen.queryByLabelText(/elimina/i);
+
+  expect(DeleteButton).toBeNull();
 });
