@@ -45,13 +45,12 @@ it("displays CommentArea component correctly", async () => {
 //verifica che la barra di ricerca dei libri funzioni correttamente. errore nella lettura dell'asin?
 
 it("renders searched book title", async () => {
-  render(<BookList />, <SingleBook />);
-  const input = screen.getAllByPlaceholderText(/cerca un libro/i);
+  render(<BookList />);
+  const input = screen.getByPlaceholderText(/cerca un libro/i);
   fireEvent.change(input, { target: { value: "magician" } });
-  const arrayOfSearchedBooks = await screen.findAllByTestId(
-    "test-searched-book"
-  );
-  expect(arrayOfSearchedBooks).toBeGreaterThan(0);
+
+  const SearchedBook = await screen.findByText("Magicians of Gor");
+  expect(SearchedBook).toBeInTheDocument();
 });
 
 //verificare che il bordo del libro selezionato cambi colore
