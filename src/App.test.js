@@ -45,7 +45,7 @@ it("displays CommentArea component correctly", async () => {
 //verifica che la barra di ricerca dei libri funzioni correttamente. errore nella lettura dell'asin?
 
 it("renders searched book title", async () => {
-  render(<BookList />);
+  render(<BookList books={fantasy} />);
   const input = screen.getByPlaceholderText(/cerca un libro/i);
   fireEvent.change(input, { target: { value: "magician" } });
 
